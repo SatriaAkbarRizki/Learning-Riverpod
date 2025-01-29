@@ -35,6 +35,6 @@ class ApiService {
   }
 }
 
-final apiProvider = StateProvider(
+final apiProvider = Provider(
   (ref) => ApiService(),
 );
