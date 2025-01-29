@@ -1,17 +1,18 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:learning_futureprovider/model/user.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
   final url = "https://658d23df7c48dce9473892eb.mockapi.io/User";
-
+  
   Future<List<User>> getUser() async {
+    log("Ambil Data");
     final respons = await http.get(Uri.parse(url));
     if (respons.statusCode == 200) {
       List<dynamic> result = jsonDecode(respons.body);
+      log("Kembalikan Data");
       return result
           .map(
             (e) => User.fromJson(e),
@@ -34,7 +35,3 @@ class ApiService {
     }
   }
 }
-
-final apiProvider = Provider(
-  (ref) => ApiService(),
-);

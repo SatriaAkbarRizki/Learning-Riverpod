@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:learning_futureprovider/model/user.dart';
+import 'package:learning_futureprovider/provider/data_provider.dart';
 import 'package:learning_futureprovider/screen/home.dart';
 import 'package:learning_futureprovider/service/user_service.dart';
 

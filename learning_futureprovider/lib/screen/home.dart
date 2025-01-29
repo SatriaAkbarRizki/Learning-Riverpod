@@ -31,7 +31,6 @@ class HomeScreen extends StatelessWidget {
                   subtitle: Text(data[index].last_name),
                   trailing: IconButton(
                       onPressed: () {
-                        ref.invalidate(apiProvider);
                         Navigator.push(
                             context,
                             MaterialPageRoute(
