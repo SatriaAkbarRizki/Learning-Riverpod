@@ -61,13 +61,12 @@ class _EditProfileState extends ConsumerState<EditProfile> {
                   ref.read(apiProvider).update(usersUpdate).then(
                     (value) {
                       if (value == true) {
-                        ref.refresh(apiProvider).getUser().whenComplete(
-                              () => Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => HomeScreen(),
-                                  )),
-                            );
+                        ref.invalidate(apiProvider);
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomeScreen(),
+                            ));
                       } else {
                         ScaffoldMessenger.of(context)
                             .showSnackBar(SnackBar(content: Text(value)));
